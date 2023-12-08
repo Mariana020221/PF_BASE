@@ -44,7 +44,7 @@ export class TiendaComponent implements OnInit {
 
   enviarProductoAPIDB(producto: any): void {
     this.mostrarOcultarSpinner(true);
-    
+    localStorage.setItem('productos', JSON.stringify(this.productos));
   }
 
   mostrarOcultarSpinner(mostrar: boolean) {
