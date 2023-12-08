@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <div class="card-container">
+        <div class="card" *ngFor="let producto of productos; let i = index">
+            <div class="card-body">
+                <img [src]="'http://localhost:3000/' + producto.imagen" alt="{{ producto.nombre }}">
+                <p>Nombre: {{ producto.nombre }}</p>
+                <p>Descripción: {{ producto.descripcion }}</p>
+                <p>Marca: {{ producto.marca }}</p>
+                <p>Precio: ${{ producto.precio }}</p>
+            </div>
+            <div class="card-footer">
+                <button (click)="carrito(producto)">Carrito</button>
+            </div>
+        </div>
+
+        <div class="spinner-container" *ngIf="mostrarSpinner">
+            <div class="spinner">
+                <img src="../../assets/spinner.gif" alt="Cargando...">
+            </div>
+        </div>
+    </div>
+</div>
