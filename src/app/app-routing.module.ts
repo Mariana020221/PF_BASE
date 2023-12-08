@@ -4,12 +4,14 @@ import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { TiendaComponent } from './tienda/tienda/tienda.component';
 import { NavbarComponent } from './tienda/navbar/navbar.component';
+import { CarritoComponent } from './tienda/carrito/carrito.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: RegistroComponent},
   {path: 'tienda', component: TiendaComponent},
   {path: 'navbar', component: NavbarComponent},
+  {path: 'carrito', component: CarritoComponent},
   {path: '**', pathMatch: 'full', redirectTo: 'login' }
 ];
 

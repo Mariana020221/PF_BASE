@@ -22,7 +22,7 @@ export class TiendaComponent implements OnInit {
   obtenerProductos(): void {
     this.mostrarOcultarSpinner(true);
 
-    this.http.get<any[]>('http://localhost:3000/productos')
+    this.http.get<any[]>('http://172.16.113.56:/productos')
       .subscribe(
         response => {
           this.productos = response;
@@ -44,20 +44,7 @@ export class TiendaComponent implements OnInit {
 
   enviarProductoAPIDB(producto: any): void {
     this.mostrarOcultarSpinner(true);
-    this.http.post('https://api-firebase-eight.vercel.app/postProductos', producto)
-      .subscribe(
-        response => {
-          console.log('Producto agregado a la base de datos:', response);
-          this.router.navigate(['/productos']);
-          this.mostrarOcultarSpinner(false);
-          this.mostrarFormulario = false;
-        },
-        error => {
-          console.log('Error al agregar el producto a la base de datos:', error);
-          this.mostrarOcultarSpinner(false);
-          this.mostrarFormulario = false;
-        }
-      );
+    
   }
 
   mostrarOcultarSpinner(mostrar: boolean) {

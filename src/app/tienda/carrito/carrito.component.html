@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Carrito de Compras</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Producto</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Total</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of productos; let i = index">
+          <td>{{producto.nombre}}</td>
+          <td>${{producto.precio}}</td>
+          <td>
+            <input type="number" min="1" [(ngModel)]="producto.cantidad" class="form-control">
+          </td>
+          <td>${{producto.precio * producto.cantidad}}</td>
+          <td>
+            <button class="btn btn-danger" (click)="eliminarProducto(i)">Eliminar</button>
+          </td>
+        </tr>
+        <!-- Repetir el patrón para cada producto en el carrito -->
+      </tbody>
+    </table>
+    <button class="btn btn-success" (click)="realizarCompra()">Realizar Compra</button>
+ </div>
